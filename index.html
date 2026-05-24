@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ToolBox — أدوات احترافية</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="bg-grid"></div>
+  <div class="bg-glow glow-1"></div>
+  <div class="bg-glow glow-2"></div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-icon">⬡</span>
+        <span class="logo-text">Tool<strong>Box</strong></span>
+      </div>
+      <nav class="nav">
+        <a href="#sec-image" class="nav-link">🖼️ صور</a>
+        <a href="#sec-pdf"   class="nav-link">📄 PDF</a>
+        <a href="#sec-text"  class="nav-link">✍️ نصوص</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-badge">✦ أدوات مجانية &amp; احترافية</div>
+    <h1 class="hero-title">أدواتك<br /><span class="accent">في مكان واحد</span></h1>
+    <p class="hero-sub">سريع · دقيق · بدون تسجيل</p>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       IMAGE TOOLS SECTION
+  ═══════════════════════════════════════ -->
+  <section class="section" id="sec-image">
+    <div class="section-header">
+      <span class="section-icon">🖼️</span>
+      <div>
+        <h2 class="section-title">أدوات الصور</h2>
+        <p class="section-sub">تعديل وتحويل الصور بسهولة</p>
+      </div>
+    </div>
+
+    <div class="tools-grid">
+
+      <!-- 1. Resize -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">↔️</div>
+          <div>
+            <h3 class="card-title">تغيير الحجم</h3>
+            <p class="card-desc">حدد عرض وارتفاع الصورة</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="file-drop" data-input="resizeFile">
+            <input type="file" id="resizeFile" accept="image/*" hidden />
+            <div class="file-drop-inner"><span class="file-icon">📂</span><span class="file-text">اسحب أو <u>اختر صورة</u></span></div>
+            <div class="file-preview-wrap" style="display:none"><img class="file-preview-img" /><span class="file-name"></span></div>
+          </div>
+          <div class="dimensions-row">
+            <div class="field-group"><label class="field-label">العرض (px)</label><input type="number" id="resizeW" class="field-input" placeholder="800" min="1" /></div>
+            <div class="dim-sep">×</div>
+            <div class="field-group"><label class="field-label">الارتفاع (px)</label><input type="number" id="resizeH" class="field-input" placeholder="600" min="1" /></div>
+          </div>
+          <button class="btn btn-primary" data-action="resize">⚡ Resize</button>
+          <div class="loader" style="display:none"><div class="spinner"></div></div>
+          <div class="error-box" style="display:none"></div>
+          <div class="result-box img-result" style="display:none">
+            <div class="result-label">✅ الصورة الناتجة</div>
+            <img class="result-image" src="" alt="result" />
+            <a class="btn btn-secondary dl-link" download="resized.png">⬇ تحميل</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Compress -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">🗜️</div>
+          <div>
+            <h3 class="card-title">ضغط الصورة</h3>
+            <p class="card-desc">تقليل حجم الصورة مع الحفاظ على الجودة</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="file-drop" data-input="compressFile">
+            <input type="file" id="compressFile" accept="image/*" hidden />
+            <div class="file-drop-inner"><span class="file-icon">📂</span><span class="file-text">اسحب أو <u>اختر صورة</u></span></div>
+            <div class="file-preview-wrap" style="display:none"><img class="file-preview-img" /><span class="file-name"></span></div>
+          </div>
+          <button class="btn btn-primary" data-action="compress">🗜️ ضغط</button>
+          <div class="loader" style="display:none"><div class="spinner"></div></div>
+          <div class="error-box" style="display:none"></div>
+          <div class="result-box img-result" style="display:none">
+            <div class="result-label">✅ الصورة المضغوطة</div>
+            <img class="result-image" src="" alt="result" />
+            <a class="btn btn-secondary dl-link" download="compressed.jpg">⬇ تحميل</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Convert -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">🔄</div>
+          <div>
+            <h3 class="card-title">تحويل الصيغة</h3>
+            <p class="card-desc">PNG ↔ JPG وغيرها</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="file-drop" data-input="convertFile">
+            <input type="file" id="convertFile" accept="image/*" hidden />
+            <div class="file-drop-inner"><span class="file-icon">📂</span><span class="file-text">اسحب أو <u>اختر صورة</u></span></div>
+            <div class="file-preview-wrap" style="display:none"><img class="file-preview-img" /><span class="file-name"></span></div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">الصيغة المطلوبة</label>
+            <select id="convertFormat" class="field-input field-select">
+              <option value="png">PNG</option>
+              <option value="jpeg">JPG</option>
+              <option value="webp">WebP</option>
+            </select>
+          </div>
+          <button class="btn btn-primary" data-action="convert">🔄 تحويل</button>
+          <div class="loader" style="display:none"><div class="spinner"></div></div>
+          <div class="error-box" style="display:none"></div>
+          <div class="result-box img-result" style="display:none">
+            <div class="result-label">✅ الصورة المحولة</div>
+            <img class="result-image" src="" alt="result" />
+            <a class="btn btn-secondary dl-link" download="converted.png">⬇ تحميل</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Rotate -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">🔃</div>
+          <div>
+            <h3 class="card-title">تدوير الصورة</h3>
+            <p class="card-desc">تدوير الصورة بزاوية معينة</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="file-drop" data-input="rotateFile">
+            <input type="file" id="rotateFile" accept="image/*" hidden />
+            <div class="file-drop-inner"><span class="file-icon">📂</span><span class="file-text">اسحب أو <u>اختر صورة</u></span></div>
+            <div class="file-preview-wrap" style="display:none"><img class="file-preview-img" /><span class="file-name"></span></div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">الزاوية (درجة)</label>
+            <select id="rotateAngle" class="field-input field-select">
+              <option value="90">90°</option>
+              <option value="180">180°</option>
+              <option value="270">270°</option>
+              <option value="-90">-90°</option>
+            </select>
+          </div>
+          <button class="btn btn-primary" data-action="rotate">🔃 تدوير</button>
+          <div class="loader" style="display:none"><div class="spinner"></div></div>
+          <div class="error-box" style="display:none"></div>
+          <div class="result-box img-result" style="display:none">
+            <div class="result-label">✅ الصورة المدوّرة</div>
+            <img class="result-image" src="" alt="result" />
+            <a class="btn btn-secondary dl-link" download="rotated.png">⬇ تحميل</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Watermark -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">💧</div>
+          <div>
+            <h3 class="card-title">علامة مائية</h3>
+            <p class="card-desc">أضف نصاً شفافاً على الصورة</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="file-drop" data-input="watermarkFile">
+            <input type="file" id="watermarkFile" accept="image/*" hidden />
+            <div class="file-drop-inner"><span class="file-icon">📂</span><span class="file-text">اسحب أو <u>اختر صورة</u></span></div>
+            <div class="file-preview-wrap" style="display:none"><img class="file-preview-img" /><span class="file-name"></span></div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">نص العلامة المائية</label>
+            <input type="text" id="watermarkText" class="field-input" placeholder="مثال: محفوظ الحقوق ©" />
+          </div>
+          <button class="btn btn-primary" data-action="watermark">💧 إضافة</button>
+          <div class="loader" style="display:none"><div class="spinner"></div></div>
+          <div class="error-box" style="display:none"></div>
+          <div class="result-box img-result" style="display:none">
+            <div class="result-label">✅ الصورة مع العلامة</div>
+            <img class="result-image" src="" alt="result" />
+            <a class="btn btn-secondary dl-link" download="watermarked.png">⬇ تحميل</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Base64 -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">🔤</div>
+          <div>
+            <h3 class="card-title">صورة إلى Base64</h3>
+            <p class="card-desc">حوّل الصورة إلى نص Base64</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="file-drop" data-input="base64File">
+            <input type="file" id="base64File" accept="image/*" hidden />
+            <div class="file-drop-inner"><span class="file-icon">📂</span><span class="file-text">اسحب أو <u>اختر صورة</u></span></div>
+            <div class="file-preview-wrap" style="display:none"><img class="file-preview-img" /><span class="file-name"></span></div>
+          </div>
+          <button class="btn btn-primary" data-action="base64">🔤 تحويل</button>
+          <div class="loader" style="display:none"><div class="spinner"></div></div>
+          <div class="error-box" style="display:none"></div>
+          <div class="result-box" style="display:none">
+            <div class="result-label">✅ كود Base64</div>
+            <textarea class="field-textarea base64-output" rows="5" readonly></textarea>
+            <button class="btn btn-secondary copy-btn">📋 نسخ</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       PDF TOOLS SECTION
+  ═══════════════════════════════════════ -->
+  <section class="section" id="sec-pdf">
+    <div class="section-header">
+      <span class="section-icon">📄</span>
+      <div>
+        <h2 class="section-title">أدوات PDF</h2>
+        <p class="section-sub">دمج وضغط وتحويل ملفات PDF</p>
+      </div>
+    </div>
+
+    <div class="tools-grid">
+
+      <!-- 1. Merge PDF -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">🔗</div>
+          <div>
+            <h3 class="card-title">دمج PDF</h3>
+            <p class="card-desc">ادمج عدة ملفات PDF في ملف واحد</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <label class="field-label">اختر ملفات PDF (متعددة)</label>
+          <input type="file" id="mergePdfs" accept=".pdf" multiple class="field-file-input" />
+          <button class="btn btn-primary" data-action="merge-pdf">🔗 دمج</button>
+          <div class="loader" style="display:none"><div class="spinner"></div></div>
+          <div class="error-box" style="display:none"></div>
+          <div class="result-box" style="display:none">
+            <div class="result-label">✅ تم الدمج</div>
+            <a class="btn btn-secondary dl-link" download="merged.pdf">⬇ تحميل PDF</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Split PDF -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">✂️</div>
+          <div>
+            <h3 class="card-title">تقسيم PDF</h3>
+            <p class="card-desc">استخرج الصفحة الأولى من الملف</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <label class="field-label">اختر ملف PDF</label>
+          <input type="file" id="splitPdf" accept=".pdf" class="field-file-input" />
+          <button class="btn btn-primary" data-action="split-pdf">✂️ تقسيم</button>
+          <div class="loader" style="display:none"><div class="spinner"></div></div>
+          <div class="error-box" style="display:none"></div>
+          <div class="result-box" style="display:none">
+            <div class="result-label">✅ تم التقسيم</div>
+            <a class="btn btn-secondary dl-link" download="split.pdf">⬇ تحميل PDF</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Compress PDF -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">📦</div>
+          <div>
+            <h3 class="card-title">ضغط PDF</h3>
+            <p class="card-desc">قلّل حجم ملف PDF</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <label class="field-label">اختر ملف PDF</label>
+          <input type="file" id="compressPdf" accept=".pdf" class="field-file-input" />
+          <button class="btn btn-primary" data-action="compress-pdf">📦 ضغط</button>
+          <div class="loader" style="display:none"><div class="spinner"></div></div>
+          <div class="error-box" style="display:none"></div>
+          <div class="result-box" style="display:none">
+            <div class="result-label">✅ تم الضغط</div>
+            <a class="btn btn-secondary dl-link" download="compressed.pdf">⬇ تحميل PDF</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Image to PDF -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">🖼️➡️📄</div>
+          <div>
+            <h3 class="card-title">صورة إلى PDF</h3>
+            <p class="card-desc">حوّل صورة PNG إلى PDF</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="file-drop" data-input="imgToPdfFile">
+            <input type="file" id="imgToPdfFile" accept="image/png" hidden />
+            <div class="file-drop-inner"><span class="file-icon">📂</span><span class="file-text">اسحب أو <u>اختر صورة PNG</u></span></div>
+            <div class="file-preview-wrap" style="display:none"><img class="file-preview-img" /><span class="file-name"></span></div>
+          </div>
+          <button class="btn btn-primary" data-action="img-to-pdf">📄 تحويل</button>
+          <div class="loader" style="display:none"><div class="spinner"></div></div>
+          <div class="error-box" style="display:none"></div>
+          <div class="result-box" style="display:none">
+            <div class="result-label">✅ تم التحويل</div>
+            <a class="btn btn-secondary dl-link" download="output.pdf">⬇ تحميل PDF</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       TEXT TOOLS SECTION
+  ═══════════════════════════════════════ -->
+  <section class="section" id="sec-text">
+    <div class="section-header">
+      <span class="section-icon">✍️</span>
+      <div>
+        <h2 class="section-title">أدوات النصوص</h2>
+        <p class="section-sub">تحليل وتعديل النصوص بسرعة</p>
+      </div>
+    </div>
+
+    <div class="tools-grid">
+
+      <!-- 1. Word Counter -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">🔢</div>
+          <div>
+            <h3 class="card-title">عداد الكلمات</h3>
+            <p class="card-desc">احسب عدد الكلمات في النص</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <textarea id="wordCountText" class="field-textarea" rows="6" placeholder="الصق نصك هنا..."></textarea>
+          <div class="char-count" id="wordLive">0 حرف · 0 كلمة</div>
+          <button class="btn btn-primary" data-action="word-count">🔢 احسب</button>
+          <div class="loader" style="display:none"><div class="spinner"></div></div>
+          <div class="error-box" style="display:none"></div>
+          <div class="result-box" style="display:none">
+            <div class="stats-grid single">
+              <div class="stat-card"><div class="stat-value"></div><div class="stat-label">كلمة</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Char Counter -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">🔡</div>
+          <div>
+            <h3 class="card-title">عداد الحروف</h3>
+            <p class="card-desc">احسب عدد الحروف في النص</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <textarea id="charCountText" class="field-textarea" rows="6" placeholder="الصق نصك هنا..."></textarea>
+          <button class="btn btn-primary" data-action="char-count">🔡 احسب</button>
+          <div class="loader" style="display:none"><div class="spinner"></div></div>
+          <div class="error-box" style="display:none"></div>
+          <div class="result-box" style="display:none">
+            <div class="stats-grid single">
+              <div class="stat-card"><div class="stat-value"></div><div class="stat-label">حرف</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Case Converter -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">🔠</div>
+          <div>
+            <h3 class="card-title">تحويل الحالة</h3>
+            <p class="card-desc">كبير / صغير للنص الإنجليزي</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <textarea id="caseText" class="field-textarea" rows="5" placeholder="Hello World..."></textarea>
+          <div class="field-group">
+            <label class="field-label">نوع التحويل</label>
+            <select id="caseType" class="field-input field-select">
+              <option value="upper">UPPERCASE</option>
+              <option value="lower">lowercase</option>
+            </select>
+          </div>
+          <button class="btn btn-primary" data-action="convert-case">🔠 تحويل</button>
+          <div class="loader" style="display:none"><div class="spinner"></div></div>
+          <div class="error-box" style="display:none"></div>
+          <div class="result-box" style="display:none">
+            <div class="result-label">✅ النتيجة</div>
+            <textarea class="field-textarea" rows="4" readonly></textarea>
+            <button class="btn btn-secondary copy-btn">📋 نسخ</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Remove Spaces -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">🧹</div>
+          <div>
+            <h3 class="card-title">إزالة المسافات الزائدة</h3>
+            <p class="card-desc">نظّف النص من المسافات المتعددة</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <textarea id="spacesText" class="field-textarea" rows="5" placeholder="نص   فيه    مسافات   زائدة..."></textarea>
+          <button class="btn btn-primary" data-action="remove-spaces">🧹 تنظيف</button>
+          <div class="loader" style="display:none"><div class="spinner"></div></div>
+          <div class="error-box" style="display:none"></div>
+          <div class="result-box" style="display:none">
+            <div class="result-label">✅ النتيجة</div>
+            <textarea class="field-textarea" rows="4" readonly></textarea>
+            <button class="btn btn-secondary copy-btn">📋 نسخ</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Text Sorter -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">🔀</div>
+          <div>
+            <h3 class="card-title">ترتيب السطور</h3>
+            <p class="card-desc">رتّب سطور النص أبجدياً</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <textarea id="sortText" class="field-textarea" rows="5" placeholder="كل سطر سيُرتّب..."></textarea>
+          <div class="field-group">
+            <label class="field-label">الترتيب</label>
+            <select id="sortOrder" class="field-input field-select">
+              <option value="asc">تصاعدي (A → Z)</option>
+              <option value="desc">تنازلي (Z → A)</option>
+            </select>
+          </div>
+          <button class="btn btn-primary" data-action="sort-text">🔀 ترتيب</button>
+          <div class="loader" style="display:none"><div class="spinner"></div></div>
+          <div class="error-box" style="display:none"></div>
+          <div class="result-box" style="display:none">
+            <div class="result-label">✅ النتيجة</div>
+            <textarea class="field-textarea" rows="4" readonly></textarea>
+            <button class="btn btn-secondary copy-btn">📋 نسخ</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <span>صُنع بـ ❤️ · ToolBox © 2025</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
